@@ -20,16 +20,8 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <TextBlock x:Name="FirstNumber" Grid.Row="0" Background="Bisque"/>
-            <TextBlock x:Name="SecondNumber" Grid.Row="1" Background="Bisque"/>
-            <TextBlock x:Name="Result" Grid.Row="2" Background="Azure"/>
-        </Grid>
+        <TextBlock x:Name="Answer" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"
+                   Background="Bisque" FontSize="30"/>
         <UniformGrid Grid.Row="0" Grid.Column="3" Rows="1">
             <Button x:Name="StepBack" DockPanel.Dock="Left"
                     Content="Del" FontSize="30" Click="Element_Click"/>
@@ -51,7 +43,7 @@
             <Button x:Name="Multyply" Content="*" FontSize="30" Click="Element_Click"/>
             <Button x:Name="Point" Content="," FontSize="30" Click="Element_Click"/>
             <Button x:Name="Zero" Content="0" FontSize="30" Click="Element_Click"/>
-            <Button x:Name="Equal" Content="=" FontSize="30" Click="Element_Click"/>
+            <Button x:Name="Equal" Content="=" FontSize="30" Click="Result_Click"/>
             <Button x:Name="Divide" Content="/" FontSize="30" Click="Element_Click"/>
         </UniformGrid>
 

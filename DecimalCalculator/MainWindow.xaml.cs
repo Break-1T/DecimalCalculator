@@ -29,42 +29,40 @@ namespace DecimalCalculator
         {
             Button numberclick = (Button)sender;
             string elements = numberclick.Content.ToString();
-            while (elements != "=")
+            switch (elements)
             {
-                switch (elements)
-                {
-                    case "C":
-                        FirstNumber.Text = "";
-                        break;
-                    case "Del":
-                        FirstNumber.Text = DeleteLastChar(Answer.Text);
-                        break;
-                    default:
-                        FirstNumber.Text += elements;
-                        break;
-                }
-            }
-            string firstNumber = FirstNumber(Answer.Text);
-            string secondNumber = SecondNumber(Answer.Text);
-            switch (Operation(Answer.Text))
-            {
-                case '+':
-                    Answer.Text = $"{Convert.ToDouble(firstNumber)+Convert.ToDouble(secondNumber)}";
+                case "C":
+                    Answer.Text = "";
                     break;
-                case '-':
-                    Answer.Text = $"{Convert.ToDouble(firstNumber)-Convert.ToDouble(secondNumber)}";
-                    break;
-                case '*':
-                    Answer.Text = $"{Convert.ToDouble(firstNumber) * Convert.ToDouble(secondNumber)}";
-                    break;
-                case '/':
-                    Answer.Text = $"{Convert.ToDouble(firstNumber) / Convert.ToDouble(secondNumber)}";
+                case "Del":
+                    Answer.Text = DeleteLastChar(Answer.Text);
                     break;
                 default:
-                    Answer.Text = "null";
+                    Answer.Text += elements;
                     break;
             }
         }
+        private void Result_Click(object sender, RoutedEventArgs e)
+        {
+            switch (Operation(Answer.Text))
+            {
+                case '+':
+                    Answer.Text = $"{Convert.ToDouble(FirstNumber(Answer.Text)) + Convert.ToDouble(SecondNumber(Answer.Text))}";
+                    break;
+                case '-':
+                    Answer.Text = $"{Convert.ToDouble(FirstNumber(Answer.Text)) - Convert.ToDouble(SecondNumber(Answer.Text))}";
+                    break;
+                case '*':
+                    Answer.Text = $"{Convert.ToDouble(FirstNumber(Answer.Text)) * Convert.ToDouble(SecondNumber(Answer.Text))}";
+                    break;
+                case '/':
+                    Answer.Text = $"{Convert.ToDouble(FirstNumber(Answer.Text)) / Convert.ToDouble(SecondNumber(Answer.Text))}";
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private string DeleteLastChar(string s)
         {
             if (s.Length > 0)
@@ -108,5 +106,6 @@ namespace DecimalCalculator
             }
             return result;
         }
+
     }
 }
